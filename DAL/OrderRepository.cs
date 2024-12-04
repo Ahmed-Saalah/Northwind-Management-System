@@ -26,11 +26,11 @@ namespace Northwind_Management_System.DAL
                 .ToList();
         }
 
-        //public IEnumerable<Order> GetOrdersByCustomerId(int customerId)
-        //{
-        //    return _context.Orders
-        //        .Where(o => o.Customer.CustomerId == customerId)
-        //        .ToList();
-        //}
+        public IEnumerable<Order> GetOrdersByCustomerId(int customerId)
+        {
+           return _context.Orders
+               .Where(o => o.Customer.CustomerId == customerId)
+               .ToList();
+        }
     }
 }
