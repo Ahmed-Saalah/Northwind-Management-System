@@ -24,7 +24,6 @@ namespace Northwind_Management_System.Forms
 
             categoryRepository = new CategoryRepository(new NorthwindContext());
 
-            // DataGridView setup for displaying categories
             dgvCategories = new DataGridView
             {
                 Location = new System.Drawing.Point(50, 50),
@@ -59,7 +58,7 @@ namespace Northwind_Management_System.Forms
                     MessageBox.Show("Please select a Category to view details.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             };
-            // Add button for adding a new category
+
             btnAdd = new Button
             {
                 Text = "Add",
@@ -85,7 +84,6 @@ namespace Northwind_Management_System.Forms
                 }
             };
 
-            // Update button for updating an existing category
             btnUpdate = new Button
             {
                 Text = "Update",
@@ -124,7 +122,6 @@ namespace Northwind_Management_System.Forms
                 }
             };
 
-            // Delete button for deleting a category
             btnDelete = new Button
             {
                 Text = "Delete",
@@ -153,7 +150,6 @@ namespace Northwind_Management_System.Forms
                 }
             };
 
-            // Adding controls to the form
             Controls.Add(dgvCategories);
             Controls.Add(btnDetails);
             Controls.Add(btnAdd);
@@ -161,7 +157,6 @@ namespace Northwind_Management_System.Forms
             Controls.Add(btnDelete);
         }
 
-        // Method to load categories from the database and bind to DataGridView
         private void LoadCategories()
         {
             try

@@ -22,7 +22,6 @@ namespace Northwind_Management_System.Forms
 
             productRepository = new ProductRepository(new NorthwindContext());
 
-            // DataGridView setup for displaying products
             dgvProducts = new DataGridView
             {
                 Location = new System.Drawing.Point(50, 50),
@@ -58,7 +57,6 @@ namespace Northwind_Management_System.Forms
                 }
             };
 
-            // Add button for adding a new product
             btnAdd = new Button
             {
                 Text = "Add",
@@ -87,7 +85,6 @@ namespace Northwind_Management_System.Forms
                 }
             };
 
-            // Update button for updating an existing product
             btnUpdate = new Button
             {
                 Text = "Update",
@@ -130,7 +127,6 @@ namespace Northwind_Management_System.Forms
             };
 
 
-            // Delete button for deleting a product
             btnDelete = new Button
             {
                 Text = "Delete",
@@ -159,7 +155,6 @@ namespace Northwind_Management_System.Forms
                 }
             };
 
-            // Adding controls to the form
             Controls.Add(dgvProducts);
             Controls.Add(btnAdd);
             Controls.Add(btnUpdate);
@@ -167,7 +162,6 @@ namespace Northwind_Management_System.Forms
             Controls.Add(btnDelete);
         }
 
-        // Method to load products from the database and bind to DataGridView
         private void LoadProducts()
         {
             try

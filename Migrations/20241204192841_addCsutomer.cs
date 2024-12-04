@@ -26,7 +26,6 @@ namespace Northwind_Management_System.Migrations
                     table.PrimaryKey("PK_Customers", x => x.CustomerId);
                 });
 
-            // Update Orders table to reference Customers.CustomerId
             migrationBuilder.AlterColumn<int>(
                 name: "CustomerId",
                 table: "Orders",
@@ -48,12 +47,10 @@ namespace Northwind_Management_System.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            // Remove foreign key
             migrationBuilder.DropForeignKey(
                 name: "FK_Orders_Customers_CustomerId",
                 table: "Orders");
 
-            // Revert Orders.CustomerId column
             migrationBuilder.AlterColumn<string>(
                 name: "CustomerId",
                 table: "Orders",
@@ -62,7 +59,6 @@ namespace Northwind_Management_System.Migrations
                 oldClrType: typeof(int),
                 oldType: "int");
 
-            // Drop Customers table
             migrationBuilder.DropTable(
                 name: "Customers");
         }

@@ -21,7 +21,6 @@ namespace Northwind_Management_System.Forms
 
             Product = product ?? new Product();
 
-            // Product Name
             var lblName = new Label
             {
                 Text = "Product Name:",
@@ -35,7 +34,6 @@ namespace Northwind_Management_System.Forms
                 Text = Product.ProductName ?? ""
             };
 
-            // Unit Price
             var lblPrice = new Label
             {
                 Text = "Unit Price:",
@@ -49,7 +47,6 @@ namespace Northwind_Management_System.Forms
                 Text = Product.UnitPrice?.ToString() ?? ""
             };
 
-            // Units in Stock
             var lblStock = new Label
             {
                 Text = "Units in Stock:",
@@ -63,7 +60,6 @@ namespace Northwind_Management_System.Forms
                 Text = Product.UnitsInStock?.ToString() ?? ""
             };
 
-            // Supplier
             var lblSupplier = new Label
             {
                 Text = "Supplier:",
@@ -76,14 +72,13 @@ namespace Northwind_Management_System.Forms
                 Size = new System.Drawing.Size(200, 30),
                 DropDownStyle = ComboBoxStyle.DropDownList,
                 DataSource = Suppliers,
-                DisplayMember = "CompanyName", // Assuming the Supplier has a CompanyName property
-                ValueMember = "SupplierID"    // Assuming the Supplier has a SupplierID property
+                DisplayMember = "CompanyName", 
+                ValueMember = "SupplierID" 
             };
 
             if (Product.Supplier != null)
                 cmbSupplier.SelectedValue = Product.Supplier.SupplierId;
 
-            // Category
             var lblCategory = new Label
             {
                 Text = "Category:",
@@ -96,14 +91,13 @@ namespace Northwind_Management_System.Forms
                 Size = new System.Drawing.Size(200, 30),
                 DropDownStyle = ComboBoxStyle.DropDownList,
                 DataSource = Categories,
-                DisplayMember = "CategoryName", // Assuming the Category has a CategoryName property
-                ValueMember = "CategoryID"    // Assuming the Category has a CategoryID property
+                DisplayMember = "CategoryName", 
+                ValueMember = "CategoryID"  
             };
 
             if (Product.Category != null)
                 cmbCategory.SelectedValue = Product.Category.CategoryId;
 
-            // Save Button
             var btnSave = new Button
             {
                 Text = "Save",
@@ -115,7 +109,6 @@ namespace Northwind_Management_System.Forms
             {
                 try
                 {
-                    // Validate inputs
                     if (string.IsNullOrWhiteSpace(txtName.Text))
                         throw new Exception("Product Name is required.");
 
@@ -131,12 +124,11 @@ namespace Northwind_Management_System.Forms
                     if (cmbCategory.SelectedItem == null)
                         throw new Exception("Category is required.");
 
-                    // Set product properties
                     Product.ProductName = txtName.Text;
                     Product.UnitPrice = price;
                     Product.UnitsInStock = (short)stock;
-                    Product.Supplier = (Supplier)cmbSupplier.SelectedItem; // Assign selected Supplier
-                    Product.Category = (Category)cmbCategory.SelectedItem; // Assign selected Category
+                    Product.Supplier = (Supplier)cmbSupplier.SelectedItem; 
+                    Product.Category = (Category)cmbCategory.SelectedItem; 
 
                     DialogResult = DialogResult.OK;
                 }
@@ -146,7 +138,6 @@ namespace Northwind_Management_System.Forms
                 }
             };
 
-            // Add controls to form
             Controls.Add(lblName);
             Controls.Add(txtName);
             Controls.Add(lblPrice);

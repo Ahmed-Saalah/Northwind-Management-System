@@ -14,7 +14,6 @@ namespace Northwind_Management_System.Forms
             Text = "Category Details";
             Size = new System.Drawing.Size(500, 400);
 
-            // Display Category Name
             var lblName = new Label
             {
                 Text = "Category Name: " + category.CategoryName,
@@ -22,7 +21,6 @@ namespace Northwind_Management_System.Forms
                 AutoSize = true
             };
 
-            // Display Category Description
             var lblDescription = new Label
             {
                 Text = "Description: " + (category.Description ?? "N/A"),
@@ -30,7 +28,6 @@ namespace Northwind_Management_System.Forms
                 AutoSize = true
             };
 
-            // Display Products in a ListBox
             var lblProducts = new Label
             {
                 Text = "Products:",
@@ -55,7 +52,6 @@ namespace Northwind_Management_System.Forms
                 lstProducts.Items.Add("No products available.");
             }
 
-            // Add controls to the form
             Controls.Add(lblName);
             Controls.Add(lblDescription);
             Controls.Add(lblProducts);

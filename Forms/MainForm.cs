@@ -18,14 +18,12 @@ namespace Northwind_Management_System.Forms
             StartPosition = FormStartPosition.CenterScreen;
             MinimumSize = new Size(800, 600);
 
-            // Define theme colors
             Color primaryColor = Color.FromArgb(52, 152, 219);
             Color secondaryColor = Color.FromArgb(41, 128, 185);
             Color backgroundColor = Color.FromArgb(236, 240, 241);
             Font headerFont = new Font("Arial", 18, FontStyle.Bold);
             Font buttonFont = new Font("Arial", 12, FontStyle.Bold);
 
-            // Header Panel
             headerPanel = new Panel
             {
                 BackColor = primaryColor,
@@ -43,7 +41,6 @@ namespace Northwind_Management_System.Forms
             };
             headerPanel.Controls.Add(lblHeader);
 
-            // Sidebar Panel
             sidebarPanel = new Panel
             {
                 BackColor = secondaryColor,
@@ -51,14 +48,12 @@ namespace Northwind_Management_System.Forms
                 Width = 200
             };
 
-            // Content Panel
             contentPanel = new Panel
             {
                 BackColor = backgroundColor,
                 Dock = DockStyle.Fill
             };
 
-            // Sidebar Buttons
             var btnCategories = CreateSidebarButton("Categories", 0);
             btnCategories.Click += (s, e) => LoadContent(new CategoryForm(), btnCategories);
 
@@ -72,7 +67,6 @@ namespace Northwind_Management_System.Forms
             sidebarPanel.Controls.Add(btnProducts);
             sidebarPanel.Controls.Add(btnCustomers);
 
-            // Add Panels to Form
             Controls.Add(headerPanel);
             Controls.Add(sidebarPanel);
             Controls.Add(contentPanel);
@@ -97,29 +91,25 @@ namespace Northwind_Management_System.Forms
 
         private void LoadContent(Form form, Button activeButton)
         {
-            // First clear the contentPanel to avoid overlap of forms
             foreach (Control control in contentPanel.Controls)
             {
-                control.Dispose();  // Dispose the existing form
+                control.Dispose();  
             }
 
-            // Set form to be in the contentPanel, without docking
             form.TopLevel = false;
             form.FormBorderStyle = FormBorderStyle.None;
 
-            // Manually set the location to center the form
-            form.Size = new Size(contentPanel.Width - 40, contentPanel.Height - 90); // Adjust size as needed
+            form.Size = new Size(contentPanel.Width - 40, contentPanel.Height - 90); 
             form.Location = new Point((contentPanel.Width - form.Width + 300) / 2, (contentPanel.Height - form.Height) / 2);
 
             contentPanel.Controls.Add(form);
             form.Show();
 
-            // Highlight the active button
             foreach (var button in sidebarPanel.Controls.OfType<Button>())
             {
-                button.BackColor = Color.FromArgb(41, 128, 185); // Default color
+                button.BackColor = Color.FromArgb(41, 128, 185);
             }
-            activeButton.BackColor = Color.FromArgb(52, 152, 219); // Highlighted color
+            activeButton.BackColor = Color.FromArgb(52, 152, 219); 
         }
 
 
