@@ -1,0 +1,9 @@
+﻿.vs/
+.vscode/
+App.config
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
